@@ -11,7 +11,7 @@ export function initialize(): void {
 function onDeviceReady(): void {
     document.addEventListener('pause', onPause, false);
     document.addEventListener('resume', onResume, false);
-
+    
     // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
     var parentElement = document.getElementById('deviceready');
     var listeningElement = parentElement.querySelector('.listening');

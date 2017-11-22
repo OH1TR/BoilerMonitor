@@ -2,6 +2,8 @@
     "name": "BoilerMonitorApp",
     "version": "1.0.0",
     "private": true,
-    "dependencies": {
-    }
+  "dependencies": {
+    "gulp": "3.9.1",
+    "gulp-less": "3.3.0"
+  }
 }

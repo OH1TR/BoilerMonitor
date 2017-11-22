@@ -1,2 +1,5 @@
 /BoilerMonitorServer/*.user
 /BoilerMonitorServer/Properties/PublishProfiles/*.user
+/.vs/BoilerMonitor/v15/*.suo
+/BoilerMonitorApp/*.user
+/BoilerMonitorApp/node_modules

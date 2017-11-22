@@ -95,3 +95,13 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+.boilerTemp {
+    font-size: 90px;
+    color: #0000FF;    
+}
+
+.smokeTemp {
+    font-size: 90px;
+    color: #FF0000;
+}
