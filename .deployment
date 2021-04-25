@@ -1,2 +1,2 @@
 [config] 
-  project = BoilerMonitorServer/BoilerMonitorServer.sln
+project = BoilerMonitorServer
