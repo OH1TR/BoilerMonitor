@@ -30,7 +30,7 @@ namespace BoilerMonitorServer
 
             services.Configure<Config>(Configuration.GetSection("Config"));
 
-            services.AddDbContext<BoilerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("BloggingDatabase")));
+            services.AddDbContext<BoilerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

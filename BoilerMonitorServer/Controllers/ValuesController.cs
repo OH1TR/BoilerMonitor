@@ -19,11 +19,13 @@ namespace BoilerMonitorServer.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] Temperature value)
+        public void Post([FromBody] Temperature[] values)
         {
-            if (_context.Temperatures.Where(i => i.Point == value.Point && i.Time == value.Time).Count() == 0)
-                _context.Temperatures.Add(value);
-
+            foreach (var value in values)
+            {
+                if (_context.Temperatures.Where(i => i.Point == value.Point && i.Time == value.Time).Count() == 0)
+                    _context.Temperatures.Add(value);
+            }
             _context.SaveChanges();
         }
         [HttpGet("latest")]
