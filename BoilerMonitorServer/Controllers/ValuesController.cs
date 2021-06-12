@@ -9,7 +9,7 @@ namespace BoilerMonitorServer.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ValuesController : Controller
+    public class ValuesController : ControllerBase
     {
         private readonly BoilerContext _context;
 
