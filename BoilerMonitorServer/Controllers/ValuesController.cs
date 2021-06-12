@@ -58,5 +58,11 @@ namespace BoilerMonitorServer.Controllers
 
             return (retval);
         }
+
+        [HttpGet]
+        public Temperature Get()
+        {
+            return _context.Temperatures.Where(i => i.Point == 0).OrderByDescending(i => i.Time).Take(1).FirstOrDefault();
+        }
     }
 }
