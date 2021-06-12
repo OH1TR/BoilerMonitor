@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace BoilerMonitorServer.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiController]
+    [Route("[controller]")]
     public class ValuesController : Controller
     {
         private readonly BoilerContext _context;
