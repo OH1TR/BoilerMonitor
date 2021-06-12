@@ -8,8 +8,8 @@ namespace BoilerMonitorServer.DBContext
     public class LatestValues
     {
         public DateTime Time;
-        public float Temp1;
-        public float Temp2;
-        public float Smoke;
+        public double Temp1;
+        public double Temp2;
+        public double Smoke;
     }
 }

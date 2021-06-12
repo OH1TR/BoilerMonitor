@@ -10,6 +10,6 @@ namespace BoilerMonitorServer.DBContext
         public int ID { get; set; }
         public DateTime Time { get; set; }
         public byte Point { get; set; }
-        public float Value { get; set; }
+        public double Value { get; set; }
     }
 }
