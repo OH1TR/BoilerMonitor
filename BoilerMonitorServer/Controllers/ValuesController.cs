@@ -62,7 +62,7 @@ namespace BoilerMonitorServer.Controllers
         [HttpGet]
         public Temperature Get()
         {
-            return new Temperature() { ID = 1, Point = 2, Time = DateTime.Now, Value = 123.4f };
+            return _context.Temperatures.Where(i => i.Point == 0).OrderByDescending(i => i.Time).Take(1).FirstOrDefault();
         }
     }
 }
