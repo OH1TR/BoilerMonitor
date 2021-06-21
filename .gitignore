@@ -1,2 +1,11 @@
 /DataLoader/bin
 /DataLoader/obj
+/BoilerMonitorApp/BoilerMonitorApp/bin
+/BoilerMonitorApp/BoilerMonitorApp/obj
+/BoilerMonitorApp/BoilerMonitorApp.Android/bin
+/BoilerMonitorApp/BoilerMonitorApp.Android/obj
+/BoilerMonitorApp/BoilerMonitorApp.Android/*.user
+/BoilerMonitorApp/BoilerMonitorApp.iOS/bin
+/BoilerMonitorApp/BoilerMonitorApp.iOS/obj
+/DTO/bin
+/DTO/obj

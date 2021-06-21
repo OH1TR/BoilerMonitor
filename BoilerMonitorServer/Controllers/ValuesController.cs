@@ -104,7 +104,7 @@ namespace BoilerMonitorServer.Controllers
             if (values2[values2.Length - 1] == 0)
                 values2[values2.Length - 1] = values2[values2.Length - 2];
 
-            return new Trace[] { new Trace() { x = times, y = values1 }, new Trace() { x = times, y = values2 } };
+            return new Trace[] { new Trace() { x = times, y = values1, name = "Trace1" }, new Trace() { x = times, y = values2, name = "Trace1" } };
         }
     }
 }
