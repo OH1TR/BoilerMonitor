@@ -106,7 +106,7 @@ namespace BoilerMonitorServer.Controllers
             for (int i = 1; i < values2.Length; i++)
             {
                 if (values2[i] == 0)
-                    values2[i] = values0[i - 1];
+                    values2[i] = values2[i - 1];
             }
 
             var result = new Trace[] { new Trace() { x = times, y = values0, name = "Trace0" }, new Trace() { x = times, y = values2, name = "Trace2" } };
