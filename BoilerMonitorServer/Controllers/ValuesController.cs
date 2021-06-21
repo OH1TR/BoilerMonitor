@@ -93,26 +93,23 @@ namespace BoilerMonitorServer.Controllers
                 int index = (int)((m.Time.FloorSeconds() - minus12).TotalMinutes);
                 if (index > 0 && index < times.Length)
                 {
-                    if (m.Temp0 != 0)
-                        values0[index] = m.Temp0;
-                    else
-                        values0[index] = values0[index - 1];
-
-                    if (m.Temp2 != 0)
-                        values2[index] = m.Temp2;
-                    else
-                        values2[index] = values2[index - 1];
+                    values0[index] = m.Temp0;
+                    values2[index] = m.Temp2;
                 }
             }
+            for (int i = 1; i < values0.Length; i++)
+            {
+                if (values0[i] == 0)
+                    values0[i] = values0[i - 1];
+            }
 
-            // Last slot is not always filled.
-            if (values0[values0.Length - 1] == 0)
-                values0[values0.Length - 1] = values0[values0.Length - 2];
+            for (int i = 1; i < values2.Length; i++)
+            {
+                if (values2[i] == 0)
+                    values2[i] = values0[i - 1];
+            }
 
-            if (values2[values2.Length - 1] == 0)
-                values2[values2.Length - 1] = values2[values2.Length - 2];
-
-            var result= new Trace[] { new Trace() { x = times, y = values0, name = "Trace0" }, new Trace() { x = times, y = values2, name = "Trace2" } };
+            var result = new Trace[] { new Trace() { x = times, y = values0, name = "Trace0" }, new Trace() { x = times, y = values2, name = "Trace2" } };
             return result;
         }
     }
