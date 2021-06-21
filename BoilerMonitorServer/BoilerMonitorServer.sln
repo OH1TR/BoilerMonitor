@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoilerMonitorServer", "BoilerMonitorServer.csproj", "{FC964032-C851-47F4-9C63-034ADB2A1889}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoader", "..\DataLoader\DataLoader.csproj", "{66CC65AB-6A36-4BB5-B3AE-5F7EF9BB59B7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoilerMonitorApp.Android", "..\BoilerMonitorApp\BoilerMonitorApp.Android\BoilerMonitorApp.Android.csproj", "{D4EBFD6F-1D70-4071-920A-E96DC2E466FB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoilerMonitorApp.iOS", "..\BoilerMonitorApp\BoilerMonitorApp.iOS\BoilerMonitorApp.iOS.csproj", "{934FB407-BFFB-4219-824C-5E5CC7FE51E1}"
@@ -37,18 +35,6 @@ Global
 		{FC964032-C851-47F4-9C63-034ADB2A1889}.Release|iPhone.Build.0 = Release|Any CPU
 		{FC964032-C851-47F4-9C63-034ADB2A1889}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{FC964032-C851-47F4-9C63-034ADB2A1889}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{66CC65AB-6A36-4BB5-B3AE-5F7EF9BB59B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{66CC65AB-6A36-4BB5-B3AE-5F7EF9BB59B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{66CC65AB-6A36-4BB5-B3AE-5F7EF9BB59B7}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{66CC65AB-6A36-4BB5-B3AE-5F7EF9BB59B7}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{66CC65AB-6A36-4BB5-B3AE-5F7EF9BB59B7}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{66CC65AB-6A36-4BB5-B3AE-5F7EF9BB59B7}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{66CC65AB-6A36-4BB5-B3AE-5F7EF9BB59B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{66CC65AB-6A36-4BB5-B3AE-5F7EF9BB59B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{66CC65AB-6A36-4BB5-B3AE-5F7EF9BB59B7}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{66CC65AB-6A36-4BB5-B3AE-5F7EF9BB59B7}.Release|iPhone.Build.0 = Release|Any CPU
-		{66CC65AB-6A36-4BB5-B3AE-5F7EF9BB59B7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{66CC65AB-6A36-4BB5-B3AE-5F7EF9BB59B7}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{D4EBFD6F-1D70-4071-920A-E96DC2E466FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D4EBFD6F-1D70-4071-920A-E96DC2E466FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4EBFD6F-1D70-4071-920A-E96DC2E466FB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
