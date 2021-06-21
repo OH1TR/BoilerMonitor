@@ -93,8 +93,15 @@ namespace BoilerMonitorServer.Controllers
                 int index = (int)((m.Time.FloorSeconds() - minus12).TotalMinutes);
                 if (index > 0 && index < times.Length)
                 {
-                    values0[index] = m.Temp0;
-                    values2[index] = m.Temp2;
+                    if (m.Temp0 != 0)
+                        values0[index] = m.Temp0;
+                    else
+                        values0[index] = values0[index - 1];
+
+                    if (m.Temp2 != 0)
+                        values2[index] = m.Temp2;
+                    else
+                        values2[index] = values2[index - 1];
                 }
             }
 
