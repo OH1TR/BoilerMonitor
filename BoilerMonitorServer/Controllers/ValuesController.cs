@@ -61,12 +61,6 @@ namespace BoilerMonitorServer.Controllers
         }
 
         [HttpGet]
-        public Temperature Get()
-        {
-            return _context.Temperatures.Where(i => i.Point == 0).OrderByDescending(i => i.Time).Take(1).FirstOrDefault();
-        }
-
-        [HttpGet]
         [Route("get12hData")]
         public IEnumerable<Trace> Get12hData()
         {
