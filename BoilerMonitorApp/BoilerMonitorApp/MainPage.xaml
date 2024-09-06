@@ -2,18 +2,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
-             x:Class="BoilerMonitorApp.MainPage">
+             x:Class="BoilerMonitorApp.MainPage" BackgroundColor="White" >
 
 
 
     <StackLayout>
         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            <Label Text="Boiler Monitor Pro" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+        <Label HorizontalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{Binding Path=Latest.Temp1}" TextColor="Blue" FontSize="75"/>
+                    <Span Text="  "  FontSize="75"/>
+                    <Span Text="{Binding Path=Latest.Temp2}" TextColor="Green" FontSize="75"/>
+                    <Span Text="  "  FontSize="75"/>
+                    <Span Text="{Binding Path=Latest.Smoke}" TextColor="Red" FontSize="75"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
         <oxy:PlotView x:Name="plotview" Model="{Binding Model}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  />
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+
     </StackLayout>
 
 </ContentPage>

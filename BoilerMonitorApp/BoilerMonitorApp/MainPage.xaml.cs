@@ -1,8 +1,11 @@
-﻿using OxyPlot;
+﻿using DTO;
+using Newtonsoft.Json;
+using OxyPlot;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +23,17 @@ namespace BoilerMonitorApp
             {
                 _Model = value;
                 OnPropertyChanged("Model");
+            }
+        }
+
+        private LatestValues _Latest;
+        public LatestValues Latest
+        {
+            get { return _Latest; }
+            set
+            {
+                Latest = value;
+                OnPropertyChanged("Latest");
             }
         }
 
@@ -43,6 +57,7 @@ namespace BoilerMonitorApp
             return values;
         }
 
+        /*
         public void InitData()
         {
             // generate some random Y data
@@ -83,7 +98,91 @@ namespace BoilerMonitorApp
             // load the model into the user control
             Model = model;
         }
+        */
 
+        public async void InitData()
+        {
+            Latest = await RefreshLatestAsync();
+
+            var data = await RefreshDataAsync();
+           
+
+            // create a series of bars and populate them with data
+            var seriesA = new OxyPlot.Series.LineSeries()
+            {
+                Title = "Ylä",
+                Color = OxyPlot.OxyColors.Blue,
+                StrokeThickness = 1
+            };
+
+            var seriesB = new OxyPlot.Series.LineSeries()
+            {
+                Title = "Ala",
+                Color = OxyPlot.OxyColors.Green,
+                StrokeThickness = 1
+            };
+
+            for (int i = 0; i < data[0].y.Length; i++)
+            {
+                seriesA.Points.Add(new DataPoint(i, data[0].y[i]));
+                seriesB.Points.Add(new DataPoint(i, data[1].y[i]));
+            }
+
+            // create a model and add the bars into it
+            var model = new OxyPlot.PlotModel
+            {
+                //Title = "Bar Graph (Column Series)"
+            };
+            model.Axes.Add(new OxyPlot.Axes.CategoryAxis());
+            model.Series.Add(seriesA);
+            model.Series.Add(seriesB);
+
+            // load the model into the user control
+            Model = model;
+        }
+        public static async Task<List<Trace>> RefreshDataAsync()
+        {
+            try
+            {
+                var uri = new Uri("https://boilermonitor.azurewebsites.net/values/get12hData");
+                HttpClient myClient = new HttpClient();
+
+                var response = await myClient.GetAsync(uri);//.ConfigureAwait(false);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var Items = JsonConvert.DeserializeObject<List<Trace>>(content);
+                    return Items;
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            return null;
+        }
+
+        public static async Task<LatestValues> RefreshLatestAsync()
+        {
+            try
+            {
+                var uri = new Uri("https://boilermonitor.azurewebsites.net/values/latest");
+                HttpClient myClient = new HttpClient();
+
+                var response = await myClient.GetAsync(uri);//.ConfigureAwait(false);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var Items = JsonConvert.DeserializeObject<LatestValues>(content);
+                    return Items;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            return null;
+        }
 
     }
 }
